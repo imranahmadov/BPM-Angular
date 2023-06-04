@@ -1,0 +1,76 @@
+<div class="main-menu" id="appSide" [ngClass]="{ collapsed: sidebarCollapsed }">
+  <ul class="list-none main-menu-list">
+    <li [routerLink]="['/']" class="parent-menu-element">
+      <div class="parent-menu-element-body">
+        <div class="flex justify-center items-center">
+          <mat-icon class="icon-active-tasks">pending_actions</mat-icon>
+          <div class="ml-2.5 text-xs xl:text-sm">Aktiv tapşırıqlar</div>
+        </div>
+      </div>
+    </li>
+
+    <ng-container *ngIf="menusObj.isSuccess">
+      <app-nested-tree [nestedObjects]="menusObj.menu"></app-nested-tree>
+      <!-- _____________________________________________ -->
+
+      <!-- <ng-container *ngFor="let item of menusObj.menu">
+        <li
+          class="parent-menu-element"
+          *ngIf="item.functionId.length === 0"
+          [ngClass]="{ active: item.active }"
+          (click)="changeParentMenu(item.nodeId)"
+        >
+          <div class="parent-menu-element-body">
+            <div class="flex justify-center items-center">
+              <mat-icon class="icon-list" *ngIf="item.sub.length > 0"
+                >list</mat-icon
+              >
+              <div class="ml-2.5 text-xs xl:text-sm">
+                {{ item.description }}
+              </div>
+            </div>
+            <mat-icon class="chevron-list" *ngIf="item.sub.length > 0"
+              >arrow_forward_ios</mat-icon
+            >
+          </div>
+          <ul
+            class="child-menu"
+            [ngStyle]="{
+              height: item.active ? item.sub.length * 52 + 'px' : 0
+            }"
+          >
+            <li
+              *ngFor="let sub of item.sub"
+              [routerLink]="['/startProcess', sub.functionId]"
+              (click)="$event.stopPropagation()"
+            >
+              <span
+                ><mat-icon class="icon-chevron-right">chevron_right</mat-icon
+                >{{ sub.description }}</span
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li
+          class="parent-menu-element"
+          *ngIf="item.functionId.length > 0"
+          [routerLink]="
+            item.functionId.length > 0
+              ? '/startProcess' + '/' + item.functionId
+              : ''
+          "
+        >
+          <div class="parent-menu-element-body">
+            <div class="flex justify-center items-center">
+              <mat-icon class="icon-circle">trip_origin</mat-icon>
+              <div class="ml-2.5 text-xs xl:text-sm">
+                {{ item.description }}
+              </div>
+            </div>
+          </div>
+        </li>
+      </ng-container> -->
+    </ng-container>
+  </ul>
+</div>

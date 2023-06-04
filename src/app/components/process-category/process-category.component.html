@@ -1,0 +1,22 @@
+<div #tabCard class="tab-card" [class.expanded]="category.active">
+  <div class="tab-card-header">
+    <div class="flex items-center justify-between">
+      <span class="title text-xs xl:text-sm">{{ category.name }}</span>
+
+      <div
+        (click)="toggleActiveState()"
+        class="slider flex items-center justify-between"
+      >
+        <span class="material-symbols-outlined"> menu </span>
+        <span class="material-symbols-outlined"> table_chart </span>
+        <div class="background p-0"></div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-card-body p-0">
+    <app-process
+      *ngFor="let process of category.processes"
+      [processData]="process"
+    ></app-process>
+  </div>
+</div>

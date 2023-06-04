@@ -1,0 +1,162 @@
+<main [ngClass]="{ shrinked: !sidebarCollapsed }">
+  <div class="panel">
+    <!-- <div class="custom-breadcrumb">
+      <span>Ana səhifə</span> -->
+    <!-- <span>/</span>
+            <span class="active">Aktiv tapşırıqlar</span> -->
+    <!-- </div> -->
+    <div class="panel-header flex justify-between">
+      <!-- <h3 class="m-0 mt-2 title">Aktiv tapşırıqlar</h3> -->
+      <!-- <button
+              class="flex items-center"
+              style="
+                border: none;
+                color: #393e46;
+                font-weight: 700;
+                font-size: 12px;
+                padding: 15px 30px;
+                border-radius: 30px;
+                outline: none;
+                height: 40px;
+                cursor: pointer;
+              "
+            >
+              EDIT JOB
+            </button> -->
+    </div>
+    <!-- <div class="project-info mt-3">
+            <ul class="list-none flex m-0" style="gap: 30px">
+              <li>
+                <span class="material-icons"> explore </span>
+                <p>Warsaw</p>
+              </li>
+              <li>
+                <span class="material-icons"> watch_later </span>
+                <p>2 weeks left</p>
+              </li>
+              <li>
+                <span class="material-icons"> bookmark </span>
+                <p>#023456</p>
+              </li>
+              <li>
+                <span class="material-icons"> home_filled </span>
+                <p>Carbon software house</p>
+              </li>
+            </ul>
+          </div> -->
+    <div
+      class="
+        filters
+        w-full
+        flex flex-column
+        grid grid-cols-1
+        xl:grid-cols-6 xl:pb-0
+        gap-5
+      "
+      [ngClass]="{ collapsed: filtersCollapsed }"
+    >
+      <div>
+        <input
+          class="search form-control text-xs xl:text-sm"
+          type="text"
+          placeholder="Search candidates, jobs"
+        />
+      </div>
+      <div>
+        <select class="search form-control text-xs xl:text-sm">
+          <option value="null">--Bütün siyahı --</option>
+          <option value=""></option>
+          <option value=""></option>
+        </select>
+      </div>
+      <div>
+        <select class="search form-control">
+          <option value="null">--Bütün siyahı --</option>
+          n>
+          <option value=""></option>
+          <option value=""></option>
+        </select>
+      </div>
+      <div>
+        <input class="search form-control" type="date" placeholder="Tarixdən" />
+      </div>
+      <div>
+        <input
+          class="search form-control"
+          type="date"
+          placeholder="Tarixədək"
+        />
+      </div>
+      <button
+        matRipple
+        class="
+          searchBtn
+          flex
+          items-center
+          text-xs
+          xl:text-sm
+          justify-self-center
+          xl:justify-self-start
+        "
+        style="width: 120px"
+      >
+        Axtar<span class="material-symbols-outlined"> search </span>
+      </button>
+    </div>
+    <div
+      matRipple
+      (click)="toggleFilters()"
+      class="
+        filters-toggler
+        w-full
+        flex
+        justify-center
+        items-center
+        xl:hidden
+        cursor-pointer
+        select-none
+      "
+      style="
+        padding: 5px 0;
+        color: #939394;
+        font-size: 13px;
+        border-bottom: 1px solid #e9e9e9;
+      "
+    >
+      Filterlər
+      <span
+        class="material-symbols-outlined ml-1"
+        style="color: #afafaf; font-size: 20px"
+      >
+        expand_more
+      </span>
+    </div>
+    <!-- <div class="tab-navs mt-3 w-full flex justify-between items-center">
+      <ul class="list-none flex gap-7">
+        <li>Aktiv tapşırıqlar</li>
+        <li class="active">Tənzimləmələr</li>
+      </ul>
+    </div> -->
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+      <mat-tab class="text-xs xl:text-sm" label="Aktiv tapşırıqlar">
+        <div style="padding: 0 12px 12px 12px; background-color: #f4f6f7">
+          <div #content class="content flex">
+            <app-process-category
+              *ngFor="let category of categories"
+              [category]="category"
+              [allCategories]="categories"
+              (toggle)="scrollToElement($event)"
+            ></app-process-category>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Tənzimləmələr"
+        >Tənzimləmələr
+        <div
+          class="h-screen"
+          style="padding: 0 12px; background-color: #f7f9fc"
+        ></div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</main>

@@ -1,0 +1,71 @@
+<ng-container *ngFor="let item of nestedObjects">
+  <li
+    class="parent-menu-element"
+    *ngIf="item.functionId.length === 0"
+    [ngClass]="{ active: item.active }"
+    (click)="changeParentMenu(item.nodeId); $event.stopPropagation()"
+  >
+    <div class="parent-menu-element-body">
+      <div class="flex justify-center items-center">
+        <mat-icon class="icon-list">list</mat-icon>
+        <div class="ml-2.5 text-xs xl:text-sm">
+          {{ item.description }}
+        </div>
+      </div>
+      <mat-icon class="chevron-list">arrow_forward_ios</mat-icon>
+    </div>
+    <ul
+      class="child-menu"
+      [ngStyle]="{
+        height: item.active ? 'max-content' : 0
+      }"
+    >
+      <!-- <ng-container *ngFor="let sub of item.sub">
+        <li
+          *ngIf="!sub.functionId"
+          [routerLink]="['/startProcess', sub.functionId]"
+          (click)="$event.stopPropagation()"
+        >
+          <span
+            ><mat-icon class="icon-chevron-right">chevron_right</mat-icon
+            >{{ sub.description }}</span
+          >
+        </li>
+        
+      </ng-container> -->
+      <app-nested-tree
+        *ngIf="item.sub && item.sub.length > 0 && item.parentId"
+        [nestedObjects]="item.sub"
+      >
+      </app-nested-tree>
+    </ul>
+  </li>
+
+  <li
+    class="parent-menu-element"
+    *ngIf="item.functionId.length > 0 && item.parentId == '0'"
+    [routerLink]="
+      item.functionId.length > 0 ? '/startProcess' + '/' + item.functionId : ''
+    "
+  >
+    <div class="parent-menu-element-body">
+      <div class="flex justify-center items-center">
+        <mat-icon class="icon-circle">trip_origin</mat-icon>
+        <div class="ml-2.5 text-xs xl:text-sm">
+          {{ item.description }}
+        </div>
+      </div>
+    </div>
+  </li>
+
+  <li
+    *ngIf="item.functionId.length > 0 && item.parentId != '0'"
+    [routerLink]="['/startProcess', item.functionId]"
+    (click)="$event.stopPropagation()"
+  >
+    <span>
+      <mat-icon class="icon-chevron-right">chevron_right</mat-icon>
+      {{ item.description }}
+    </span>
+  </li>
+</ng-container>

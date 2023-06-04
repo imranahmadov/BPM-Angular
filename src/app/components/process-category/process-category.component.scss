@@ -1,0 +1,102 @@
+div.slider {
+  position: relative;
+  border-radius: 7px;
+  border: 1px solid #e1e1e1;
+  padding: 1px !important;
+  background-color: rgba(227, 227, 227, 0.55);
+}
+
+div.slider span {
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  cursor: pointer;
+  color: #a6abb3;
+  -webkit-user-select: none;
+  user-select: none;
+  z-index: 1;
+  transition: color 500ms;
+}
+
+.tab-card div.slider div.background {
+  position: absolute;
+  min-width: 28px;
+  max-width: 28px;
+  min-height: 28px;
+  max-height: 28px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: rgb(171 171 171 / 45%) 0px 2px 3px 1px;
+  z-index: 0;
+  transition: margin-left 450ms;
+}
+.tab-card .slider .background:not(.tab-card.expanded .slider .background) {
+  margin-left: 0;
+}
+.tab-card.expanded .slider .background {
+  margin-left: 28px !important;
+}
+.tab-card:not(.expanded) .slider span:nth-child(1) {
+  color: #4992ff !important;
+}
+.tab-card:not(.expanded) .slider span:nth-child(2) {
+  color: #a6abb3;
+}
+.tab-card.expanded .slider span:nth-child(2) {
+  color: #4992ff !important;
+}
+.tab-card.expanded .slider span {
+  color: #a6abb3 !important;
+}
+.tab-card {
+  background-color: rgb(247, 250, 255);
+  min-width: 320px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  height: 100%;
+  min-height: 360px;
+  transition: min-width 450ms;
+}
+.tab-card.expanded {
+  min-width: calc(100vw - 50px);
+}
+.tab-card.expanded .tab-card-body {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.tab-card .actions span {
+  cursor: pointer;
+}
+
+.tab-card-header:first-child {
+  border: none !important;
+}
+
+.tab-card-header {
+  padding: 0 15px;
+  background-color: transparent;
+  border: none !important;
+}
+
+.tab-card-header div:not(.slider) {
+  padding: 15px 0;
+}
+
+.tab-card-header span:not(.slider span) {
+  border-radius: 5px;
+  color: #0000008a;
+  text-align: center;
+  font-weight: 500;
+}
+.tab-card-body {
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 15px !important;
+  max-height: calc(100% - 90px);
+  overflow: auto;
+  margin-right: 5px;
+  overflow-x: hidden;
+}

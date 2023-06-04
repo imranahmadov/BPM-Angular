@@ -1,0 +1,26 @@
+.tab-card-content {
+  background-color: #ffffff;
+  width: 275px;
+  border: 1px solid rgb(73 146 255 / 17%);
+  padding: 15px;
+  border-radius: 10px;
+}
+.tab-card-content-main li {
+  color: #666666eb;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+}
+.tab-card-content-main li:last-child {
+  padding-top: 10px;
+}
+.tab-card-content-main li:not(.tab-card-content-main li:last-child) {
+  border-bottom: 0.5px solid rgb(73 146 255 / 11%);
+  padding: 5px 0;
+}
+.tab-card-content-main li span {
+  color: #666666c2;
+  font-family: sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+}

@@ -1,0 +1,74 @@
+.parent-menu-element-body {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+}
+.parent-menu-element:not(.parent-menu-element:last-child) {
+  border-bottom: 0.5px solid #00000008;
+}
+
+mat-icon.icon-list {
+  display: flex;
+  align-items: center;
+  color: rgb(202, 199, 199);
+  font-size: 22px;
+  user-select: none;
+  transition: color 250ms;
+}
+mat-icon.icon-circle {
+  display: flex;
+  align-items: center;
+  color: rgb(202, 199, 199);
+  font-size: 17px;
+  user-select: none;
+  transition: color 250ms;
+}
+mat-icon.icon-active-tasks {
+  display: flex;
+  align-items: center;
+  color: rgb(202, 199, 199);
+  font-size: 22px;
+  user-select: none;
+  transition: color 250ms;
+}
+mat-icon.icon-chevron-right {
+  color: rgb(202, 199, 199) !important;
+  font-size: 20px;
+  transition: color 250ms ease;
+}
+
+.parent-menu-element.active {
+  color: #b10738;
+  background-color: #0000000a;
+}
+.parent-menu-element.active > .parent-menu-element-body mat-icon {
+  color: #b10738;
+}
+
+.parent-menu-element .child-menu {
+  padding: 0;
+  margin-top: 0;
+  height: 0px;
+  overflow: hidden;
+  background-color: #0000000f;
+  border-radius: 10px 0 0 10px;
+  cursor: pointer;
+  color: #666 !important;
+  // transition: all 250ms ease;
+}
+.parent-menu-element .child-menu li span {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.parent-menu-element.active > .child-menu{
+  margin-top: 22px;
+  /* height: auto; */
+  // transition: all 250ms ease;
+}
+.child-menu li:not(.parent-menu-element):hover .icon-chevron-right {
+  color: #b10738 !important;
+}
+.child-menu li.active-child-link {
+  color: #b10738 !important;
+}

@@ -1,0 +1,35 @@
+<div class="tab-card-content flex cursor-pointer">
+  <div class="tab-card-content-main flex flex-column w-full p-0 leading-5">
+    <ul class="list-none">
+      <li class="text-xs xl:text-sm">
+        Kanal: <span>{{ processData.channel }}</span>
+      </li>
+      <li class="text-xs xl:text-sm">
+        Müştəri <span>{{ processData.customer }}</span>
+      </li>
+      <li class="text-xs xl:text-sm">
+        Filial: <span>{{ processData.branch }}</span>
+      </li>
+      <li class="text-xs xl:text-sm">
+        KART: <span>{{ processData.card_duration }}</span>
+      </li>
+      <li class="text-xs xl:text-sm">
+        Kart: <span>{{ processData.card_type }}</span>
+      </li>
+      <li class="text-xs xl:text-sm">
+        Valyuta: <span>{{ processData.currency }}</span>
+      </li>
+      <li class="text-xs xl:text-sm">
+        <span
+          style="background-color: #dddddd87; padding: 5px; border-radius: 5px"
+          >{{ processData.status }}</span
+        >
+      </li>
+    </ul>
+    <span
+      class="font-bold text-xs break-all"
+      style="color: #919191; font-family: Roboto, 'Helvetica Neue', sans-serif"
+      >#ID: {{ processData.id }}</span
+    >
+  </div>
+</div>

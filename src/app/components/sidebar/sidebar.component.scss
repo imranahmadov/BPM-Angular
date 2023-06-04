@@ -1,0 +1,114 @@
+.main-menu {
+  background-color: white;
+  width: 320px;
+  height: calc(100vh - 49px);
+  position: fixed;
+  /* padding: 26px 0 26px 40px; */
+  left: 0;
+  overflow-y: auto;
+  z-index: 100;
+  border-right: 1px solid #e9eaed;
+  transition: left 250ms;
+}
+.main-menu.collapsed {
+  left: -320px;
+}
+.menu-title {
+  color: #c7c7c7;
+  font-weight: 500;
+  font-size: 18px !important;
+  margin-left: 2px;
+  font-family: "Georgia", "Helvetica Neue", serif;
+}
+
+::ng-deep .main-menu-list {
+  display: flex;
+  flex-direction: column;
+  /* gap: 3px; */
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+::ng-deep .main-menu-list li {
+  border-right: 3px solid;
+  border-color: transparent;
+  transition: border-color 0.25s;
+  width: 100%;
+  display: flex;
+  padding: 14px 0 14px 22px;
+  transition: all 250ms ease;
+  flex-direction: column;
+  cursor: pointer;
+  word-break: normal;
+  font-weight: 500;
+}
+.parent-menu-element-body {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+}
+.parent-menu-element:not(.parent-menu-element:last-child) {
+  border-bottom: 0.5px solid #00000008;
+}
+::ng-deep .main-menu-list li:hover {
+  border-color: transparent #b10738 transparent transparent;
+  background-color: #0000000a;
+  transition: border-color 250ms ease;
+  color: #b10738;
+}
+::ng-deep
+  .main-menu-list
+  li:hover
+  > .parent-menu-element-body
+  mat-icon:not(.chevron-list) {
+  color: #b10738;
+}
+mat-icon.icon-list {
+  display: flex;
+  align-items: center;
+  color: rgb(202, 199, 199);
+  font-size: 22px;
+  user-select: none;
+  transition: color 250ms;
+}
+mat-icon.icon-circle {
+  display: flex;
+  align-items: center;
+  color: rgb(202, 199, 199);
+  font-size: 17px;
+  user-select: none;
+  transition: color 250ms;
+}
+mat-icon.icon-active-tasks {
+  display: flex;
+  align-items: center;
+  color: rgb(202, 199, 199);
+  font-size: 22px;
+  user-select: none;
+  transition: color 250ms;
+}
+mat-icon.icon-chevron-right {
+  color: rgb(202, 199, 199) !important;
+  font-size: 20px;
+  transition: color 250ms ease;
+}
+::ng-deep .main-menu-list li mat-icon.chevron-list {
+  margin-right: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(202, 199, 199);
+  border-radius: 20px;
+  font-size: 20px;
+  transition: transform 0.25s, color 0.25s;
+  user-select: none;
+}
+
+::ng-deep
+  .main-menu-list
+  .parent-menu-element.active
+  > .parent-menu-element-body
+  > mat-icon.chevron-list {
+  transform: rotate(90deg);
+  color: #b10738;
+}

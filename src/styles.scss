@@ -1,0 +1,88 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// ::-webkit-scrollbar {
+//   width: 7px;
+// }
+
+// /* Track */
+// ::-webkit-scrollbar-track {
+//   background: #f1f1f1;
+// }
+
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//   background: #801336;
+// }
+
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//   background: #801336;
+// }
+
+// ::-webkit-scrollbar:horizontal {
+//   height: 7px;
+// }
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(136, 136, 136, 0.075);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(85 85 85 / 21%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(85, 85, 85, 0.432);
+  cursor: pointer;
+}
+
+app-main mat-tab-header {
+  border-bottom: 1px solid #e9eaed;
+}
+app-main .mdc-tab__content .mdc-tab__text-label {
+  color: rgba(102, 102, 102, 0.692);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.9px;
+}
+app-main
+  .mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active
+  .mdc-tab__text-label,
+.mat-mdc-tab-link:not(.mat-mdc-tab-disabled).mdc-tab--active
+  .mdc-tab__text-label {
+  color: #666;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.9px;
+}
+app-main .mdc-tab-indicator__content--underline {
+  border-color: #438eff !important;
+}
+
+.mdc-tab__ripple::before {
+  background-color: #9eb6e149 !important;
+}
+app-main .mat-mdc-tab-labels {
+  padding-left: 25px;
+}
+app-main main.shrinked .tab-card.expanded {
+  min-width: calc(100vw - 370px) !important;
+}
